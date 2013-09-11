@@ -5,12 +5,12 @@ using System;
 
 public class CharacterControls
 {
-    public KeyCode MoveForward = KeyCode.W;
-    public KeyCode MoveBack = KeyCode.S;
-    public KeyCode MoveLeft = KeyCode.A;
-    public KeyCode MoveRight = KeyCode.D;
-    public KeyCode MoveUp = KeyCode.Space;
-    public KeyCode MoveDown = KeyCode.LeftControl;
+    public Control MoveForward;
+    public Control MoveBack;
+    public Control MoveLeft;
+    public Control MoveRight;
+    public Control MoveUp;
+    public Control MoveDown;
 }
 
 public class MyDerivedMono : MonoBehaviour
@@ -66,27 +66,27 @@ public class CharacterMovement : MyDerivedMono {
 	// Update is called once per frame
 	void Update () 
 	{
-	    if(Input.GetKey(Controls.MoveForward))
+	    if(Controls.MoveForward.IsActive)
 		{
 			transform.Translate(transform.forward*trueSpeed);
 		}
-        if (Input.GetKey(Controls.MoveBack))
+        if (Controls.MoveBack.IsActive)
         {
             transform.Translate(-1 * transform.forward * trueSpeed);
         }
-        if (Input.GetKey(Controls.MoveLeft))
+        if (Controls.MoveLeft.IsActive)
         {
             transform.Translate(-1 * transform.right * trueSpeed);
         }
-        if (Input.GetKey(Controls.MoveRight))
+        if (Controls.MoveRight.IsActive)
         {
             transform.Translate(transform.right * trueSpeed);
         }
-        if (Input.GetKey(Controls.MoveUp))
+        if (Controls.MoveUp.IsActive)
         {
             transform.Translate(transform.up * trueSpeed);
         }
-        if (Input.GetKey(Controls.MoveDown))
+        if (Controls.MoveDown.IsActive)
         {
             transform.Translate(-1 * transform.up * trueSpeed);
         }

@@ -1,0 +1,16 @@
+Character Control
+	moving
+	getting input
+
+control class
+	list <inputs>
+	isActive
+
+Input class and other input classes
+inher - all public and protected inher
+
+Input class
+	isActive
+
+KeyboardInput: Input
+	keyCode

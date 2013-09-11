@@ -1,7 +1,6 @@
 *.csproj
 *.sln
 *.unityproj
-*.meta
 *.suo
 */Library/*
 */Temp/*
