@@ -25,24 +25,15 @@ public class PlatformController : MyDerivedMono
                    MoveRight,
                    Jump;
 
-    public float XAccel = 30,
-                 XDecel = 60,
+    public float XAccel = 10,
+                 XDecel = 20,
                  XMaxVel = 60,
                  XVel = 0,
-                 YAccel = -30,
+                 YAccel = -10,
                  YTermVel = -60,
-                 YJump = 60,
+                 YJump = 10,
                  YVel = 0;
     
-//    public float Gravity = 9,
-//                 JumpStrength = 30,
-//                 MoveSpeed = 15;
-//
-//    public int JumpDuration = 10,
-//               JumpFor = 0;
-//
-//    public bool CanJump = true;
-//
     private CharacterController controller;
     CollisionFlags prevFlags;
 
@@ -61,7 +52,7 @@ public class PlatformController : MyDerivedMono
 
         if (prevFlags.Has(CollisionFlags.CollidedBelow))
         {
-			if (Jump.KeyDown)
+			if (Jump.IsActive)
 			{
 				YVel = YJump;
 			}
@@ -155,36 +146,8 @@ public class PlatformController : MyDerivedMono
 			XVel = 0;
 		}
 		
-		moveVec.x += XVel * Time.deltaTime;
-		moveVec.y += YVel * Time.deltaTime;
-
-        //if (MoveLeft.IsActive)
-        //{
-        //    moveVec.x -= MoveSpeed;
-        //}
-
-        //if (MoveRight.IsActive)
-        //{
-        //    moveVec.x += MoveSpeed;
-        //}
-
-        //if (prevFlags.Has(CollisionFlags.CollidedBelow))
-        //{
-        //    if (Jump.KeyDown)
-        //    {
-        //        JumpFor = JumpDuration;
-        //    }
-        //}
-        //else
-        //{
-        //    moveVec.y -= Gravity;
-        //}
-
-        //if (JumpFor > 0)
-        //{
-        //    moveVec.y += JumpStrength;
-        //    JumpFor -= 1; 
-        //}
+		moveVec.x += XVel;
+		moveVec.y += YVel;
 
         prevFlags = controller.Move(moveVec * Time.deltaTime);
     }
