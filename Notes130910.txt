@@ -14,3 +14,9 @@ Input class
 
 KeyboardInput: Input
 	keyCode
+
+Coin counts
+
+jump sound
+coin sound
+background sound

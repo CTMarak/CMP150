@@ -55,6 +55,7 @@ public class PlatformController : MyDerivedMono
 			if (Jump.IsActive)
 			{
 				YVel = YJump;
+                audio.Play();
 			}
 			else
 			{
