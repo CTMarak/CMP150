@@ -36,6 +36,7 @@ public class PlatformController : MyDerivedMono
     
     private CharacterController controller;
     CollisionFlags prevFlags;
+    public GameObject DrawObject;
 
 	void Start () 
     {
@@ -62,6 +63,7 @@ public class PlatformController : MyDerivedMono
 				YVel = 0;
 				if (MoveLeft.IsActive)
 				{
+                    DrawObject.transform.rotation = Quaternion.Euler(0, 180, 0);
 					if (XVel > -1*XMaxVel)
 					{
 						if (XVel > 0)
@@ -84,6 +86,7 @@ public class PlatformController : MyDerivedMono
 				}
 				else if (MoveRight.IsActive)
 				{
+                    DrawObject.transform.rotation = Quaternion.Euler(0, 0, 0);
 					if (XVel < XMaxVel)
 					{
 						if (XVel < 0)

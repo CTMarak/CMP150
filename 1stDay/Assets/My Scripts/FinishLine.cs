@@ -9,6 +9,6 @@ public class FinishLine : MonoBehaviour {
         //Debug.Log("You Win!");
         //other.gameObject.transform.position.x -= 2f;
         CoinCounter.Win = true;
-        other.gameObject.renderer.enabled = false;
+//        other.gameObject.GetComponent<PlayerObject>().renderer.enabled = false; //NEED TO CHANGE!!!!!!
     }
 }
