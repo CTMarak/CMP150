@@ -17,16 +17,17 @@ public class Gun : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-		if (Shoot.IsActive)
+		if (Shoot.KeyDown)
 		{
-			var shot = Object.Instantiate(Ammo,transform.position,transform.rotation);
+			this.fire ();
 		}
 	
 	}
 
     void fire()
     {
-        Bullet bullet = ((GameObject)Instantiate(Ammo, transform.position, transform.rotation)).GetComponent<Bullet>();
+		GameObject holder = (GameObject)Instantiate(Ammo, transform.position, transform.rotation);
+        Bullet bullet = holder.GetComponent<Bullet>();
         bullet.Speed = BulletSpeed;
     }
 }
