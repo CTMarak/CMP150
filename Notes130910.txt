@@ -20,3 +20,16 @@ Coin counts
 jump sound
 coin sound
 background sound
+
+10/15/2013
+----------
+look up Time.time in script ref to see how to do the gun
+fire sound
+fire rate
+out of ammo sound
+reload
+reload sound
+
+add enemy to reacts to bullet - destroys
+no finish until all enemies destroyed
+replay after win - application.loadlevel - check this out

@@ -5,10 +5,14 @@ public class FinishLine : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        //other.gameObject.SetActive(false);
-        //Debug.Log("You Win!");
-        //other.gameObject.transform.position.x -= 2f;
-        CoinCounter.Win = true;
-//        other.gameObject.GetComponent<PlayerObject>().renderer.enabled = false; //NEED TO CHANGE!!!!!!
+        if (other.tag == "Player")
+        {
+            CoinCounter.Win = true;
+            Renderer[] PlayerRenderers = other.GetComponentsInChildren<Renderer>();
+            foreach (Renderer playerRenderer in PlayerRenderers)
+            {
+                playerRenderer.enabled = false;
+            }
+        }
     }
 }
