@@ -7,17 +7,16 @@ public class EnemyController : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("in ontriggerenter");
         if (other.tag == "Bullet")
         {
-            Debug.Log("I am a bullet!");
             Die();
+			this.audio.Play();
         }
     }
 
     void Die()
     {
-        Debug.Log("Die has been called!");
-        ControlledObject.renderer.enabled = false;
+//        ControlledObject.renderer.enabled = false;
+		Destroy(ControlledObject);
     }
 }

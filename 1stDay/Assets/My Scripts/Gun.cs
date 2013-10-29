@@ -4,15 +4,27 @@ using System.Collections;
 public class Gun : MonoBehaviour {
 
     public float BulletSpeed;
-    public float FireRate;
+    public float AmmoLimit;
+	public float AmmoUsed = 0;
     public Bullet Ammo;
     public Control Shoot;
+	public Control Reload;
 
 	void Update () 
     {
 		if (Shoot.KeyDown)
 		{
-			this.fire ();
+			if (AmmoUsed < AmmoLimit)
+			{
+				AmmoUsed += 1;
+				this.audio.Play();
+				this.fire ();
+			}
+		}
+		
+		if (Reload.KeyDown)
+		{
+			AmmoUsed = 0;
 		}
 	
 	}

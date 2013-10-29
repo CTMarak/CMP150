@@ -7,10 +7,13 @@ public class CoinController : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        audio.Play();
-        CoinCounter.CoinCount += CoinValue;
-        this.renderer.enabled = false;
-        this.collider.enabled = false;
-        Destroy(this.gameObject,1);
+		if (other.tag == "Player")
+		{
+			audio.Play();
+	        CoinCounter.CoinCount += CoinValue;
+	        this.renderer.enabled = false;
+	        this.collider.enabled = false;
+	        Destroy(this.gameObject,1);
+		}
     }
 }

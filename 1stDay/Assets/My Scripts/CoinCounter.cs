@@ -14,6 +14,11 @@ public class CoinCounter : MonoBehaviour {
         {
             GUILayout.BeginArea(new Rect(Screen.width * .3f, Screen.height * .3f, Screen.width * .4f, Screen.height * .4f));
             GUILayout.Label("Y O U   W I N ! ! !");
+			if(GUILayout.Button("Restart"))
+			{
+				Win = false;
+				Application.LoadLevel(Application.loadedLevel);
+			}
             GUILayout.EndArea();
         }
         GUILayout.BeginArea(new Rect(0, Screen.height * .9f, Screen.width, Screen.height * .1f));

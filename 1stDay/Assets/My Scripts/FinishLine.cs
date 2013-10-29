@@ -7,12 +7,16 @@ public class FinishLine : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
-            CoinCounter.Win = true;
-            Renderer[] PlayerRenderers = other.GetComponentsInChildren<Renderer>();
-            foreach (Renderer playerRenderer in PlayerRenderers)
-            {
-                playerRenderer.enabled = false;
-            }
+			GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+			if(enemies.Length == 0)
+			{
+	            Renderer[] PlayerRenderers = other.GetComponentsInChildren<Renderer>();
+	            foreach (Renderer playerRenderer in PlayerRenderers)
+	            {
+	                playerRenderer.enabled = false;
+	            }
+	            CoinCounter.Win = true;
+			}
         }
     }
 }
