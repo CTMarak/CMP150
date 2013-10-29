@@ -17,6 +17,7 @@ public class CoinCounter : MonoBehaviour {
 			if(GUILayout.Button("Restart"))
 			{
 				Win = false;
+				CoinCount = 0;
 				Application.LoadLevel(Application.loadedLevel);
 			}
             GUILayout.EndArea();

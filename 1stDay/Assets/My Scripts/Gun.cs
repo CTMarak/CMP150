@@ -9,6 +9,10 @@ public class Gun : MonoBehaviour {
     public Bullet Ammo;
     public Control Shoot;
 	public Control Reload;
+	public AudioClip bang;
+	public AudioClip reload;
+	public AudioClip eject;
+	public AudioClip empty;
 
 	void Update () 
     {
@@ -17,13 +21,19 @@ public class Gun : MonoBehaviour {
 			if (AmmoUsed < AmmoLimit)
 			{
 				AmmoUsed += 1;
-				this.audio.Play();
+				this.audio.PlayOneShot(bang);
 				this.fire ();
+				this.audio.PlayOneShot(eject);
+			}
+			else
+			{
+				this.audio.PlayOneShot(empty);
 			}
 		}
 		
 		if (Reload.KeyDown)
 		{
+			this.audio.PlayOneShot(reload);
 			AmmoUsed = 0;
 		}
 	

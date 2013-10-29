@@ -17,6 +17,13 @@ public class FinishLine : MonoBehaviour {
 	            }
 	            CoinCounter.Win = true;
 			}
+			else
+			{
+				foreach (var enemy in enemies)
+				{
+					Debug.Log(enemy.name);
+				}
+			}
         }
     }
 }
